@@ -1,3 +1,5 @@
+import sys
+
 # Comments are a way to communicate to other programmers/humans
 # Is print a method or a function?
 
@@ -8,6 +10,8 @@ print("Hello World!")
 
 print('This is a line of text in single quotes')
 
+# Function call - name, arguments between paranthesis
 
+print("this is a line of text")
 
 
