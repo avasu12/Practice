@@ -1,17 +1,58 @@
-import sys
+""" Practicing python 
+a variety of problems """
 
-# Comments are a way to communicate to other programmers/humans
-# Is print a method or a function?
+# Adding numbers
 
-# Are read & write the only operations a computer can perform?
+variable_one = 5
+variable_two = 17
 
-# Tell the computer to "write something" (where?) stdout?
-print("Hello World!")
+print(variable_one + variable_two + 17)
 
-print('This is a line of text in single quotes')
 
-# Function call - name, arguments between paranthesis
+# Creating strings
 
-print("this is a line of text")
+string_one = "Rolling pin"
+string_two = "whisk"
 
+print(string_one + "asdf " + string_two)
+
+
+# Working with types
+
+cast_string = str(52)
+cast_integer = int(32)
+
+print(cast_string + " test")
+
+print(type(cast_integer))
+
+
+float_value = float(68.9912)
+integer_value = int(22.6)
+
+print(float_value * integer_value)
+
+
+# Creating variables 
+
+var_one, var_two, var_three, var_four = 43, 234, 33, 56
+car_name = "Fiat"
+
+print(var_three + var_one)
+
+# Printing multiple types:
+
+print(var_one, string_two, float_value, "End of multi-type print")
+
+
+# Scopes
+
+def some_function():
+    global inner_variable
+    inner_variable = "inside some_function()"
+
+    print(float_value)
+
+some_function()
+print(inner_variable)
 
