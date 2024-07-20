@@ -56,3 +56,12 @@ def some_function():
 some_function()
 print(inner_variable)
 
+
+
+
+# Strings
+
+single_quoted = "Ball Hammer"
+double_quoted = 'ripe capsule'
+
+
