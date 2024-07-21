@@ -64,4 +64,35 @@ print(inner_variable)
 single_quoted = "Ball Hammer"
 double_quoted = 'ripe capsule'
 
+nested_singlequote = "Ball 'Hammer'"
+nested_doublequote = '"ripe" capsule'
+
+print(nested_singlequote)
+print(nested_doublequote)
+
+
+long_string = """ The quick sly fox
+jumped over 
+the lazy brown dog"""
+
+print(long_string)
+
+long_singlequote = '''Lorem Ipsum 
+dolor sit amet
+consectetur adipiscing elit'''
+
+print(long_singlequote)
+
+
+# Type Hierarchy
+
+print(type(long_singlequote).__mro__)
+
+
+
+# Booleans
+
+print(var_one > var_two)
+print(bool(""))
+
 
