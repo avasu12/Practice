@@ -95,4 +95,15 @@ print(type(long_singlequote).__mro__)
 print(var_one > var_two)
 print(bool(""))
 
+# Operators
 
+print(5 -19)
+if "23" in ["22", "23", "24"]:
+	print("exists")
+else:
+	print("does not exist")
+
+if str("blanket") is str("blanket"):
+	print("same object")
+else:
+	print("different object")
