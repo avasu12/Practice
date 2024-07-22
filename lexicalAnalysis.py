@@ -107,3 +107,26 @@ if str("blanket") is str("blanket"):
 	print("same object")
 else:
 	print("different object")
+
+
+# Lists
+
+list_one = [23, 22, 65, 45, 92, 100, 159, 1376]
+
+print(list_one)
+print(type(list_one))
+print(list_one[4])
+print(list_one[-1])
+print(list_one[3:5])
+print(list_one[:2])
+
+if 100 in list_one:
+	print("membership operator works")
+
+print(type(list_one).__mro__)
+
+list_one[0:5] = [3]
+print(list_one)
+
+list_one[0:1] = [3, 5, 98]
+print(list_one)
