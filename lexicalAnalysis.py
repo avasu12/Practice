@@ -130,3 +130,44 @@ print(list_one)
 
 list_one[0:1] = [3, 5, 98]
 print(list_one)
+
+
+# Loops
+
+i = len(list_one)
+while i > 3:
+    print("greater")
+    i-=1
+else:
+    print("loop complete")
+
+for number in list_one:
+    print(number)
+
+
+# Functions
+
+def print_message():
+    print("Hello World!")
+
+print_message()
+
+def space_filler():
+    pass
+
+space_filler()
+
+
+
+# Dreaded recursion
+
+def recursion_sum(number):
+    sum = 0
+    next_arg = number - 1
+    if next_arg >= 0:
+        sum = number + recursion_sum(next_arg)
+        return sum
+    else:
+        return sum
+
+print(recursion_sum(10))
