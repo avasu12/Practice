@@ -171,3 +171,26 @@ def recursion_sum(number):
         return sum
 
 print(recursion_sum(10))
+
+
+# Dictionaries
+
+new_dictionary = { "carbohydrate": "wheat", "protein": "beans", "fat": "oils", "grams": 250 }
+
+print(new_dictionary)
+print(new_dictionary.keys())
+
+# Tuples
+
+horizon_characters = ( "Aloy", "Alva", "Sylens", "Varl", "Zo", "Erend", "Beta", "Kotallo")
+print(horizon_characters)
+
+
+# Sets
+
+set_A = { 'a', 'b', 'c', 1, 2, 3 }
+set_B = { 'c', 1, 34, 98, 'z', 'x' }
+
+print(set_A.union(set_B))
+print(set_A.intersection(set_B))
+
