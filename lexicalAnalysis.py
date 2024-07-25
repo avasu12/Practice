@@ -194,3 +194,15 @@ set_B = { 'c', 1, 34, 98, 'z', 'x' }
 print(set_A.union(set_B))
 print(set_A.intersection(set_B))
 
+
+
+# Observations
+
+print(__name__)
+
+print(list(range(5,20)))
+n = input("Enter number:")
+if n in range(5,20):
+    print("In Range")
+else:
+    print("Out of range")
