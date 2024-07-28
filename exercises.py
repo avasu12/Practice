@@ -1,3 +1,5 @@
+import math
+
 ''' Clock problem
 
 Inputs: Current time, wait hours
@@ -11,3 +13,14 @@ wait_hours = int(input("How long should you wait? Enter an integer representing 
 alarm_time = (current_time + wait_hours)%24
 
 print("The alarm rings at ", alarm_time)
+
+
+# Math functions
+
+print(math.sqrt(9))
+print((10*2/1))
+
+# Strings
+
+num_chars = len("rv")
+print(num_chars)
