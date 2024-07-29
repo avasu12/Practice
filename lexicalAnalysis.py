@@ -207,4 +207,4 @@ if n in range(5,20):
 else:
     print("Out of range")
 
-print('testing commits')
+print('testing git push')
