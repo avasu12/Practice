@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-r = requests.get("https://keithgalli.github.io/web-scraping/example.html")
+r = requests.get("https://test.site")
 
 print(r)
 print(r.content)
