@@ -7,13 +7,18 @@ from turtle import *
 color("blue")
 width(3)
 
-forward(100)
-left(120)
-forward(100)
-left(120)
-forward(100)
+def draw_star(size):
+    for _ in range(5):
+        forward(size)
+        right(144)
 
-circle(10)
+def draw_square(size):
+    for _ in range(4):
+        forward(size)
+        right(90)
 
+# draw_square(100)
+
+draw_star(150)
 
 mainloop()
