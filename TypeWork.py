@@ -1,14 +1,12 @@
 
-print(b'this is a byte sequence')
+class Node:
+    def __init__(self):
+        print('Object Initialized')
 
-import requests
-from bs4 import BeautifulSoup
+    def test(self):
+        print('Inside class Node')
 
-response = requests.get('https://waitbutwhy.com')
-print(response)
-# print(response.content)
+n = Node()
 
-soup = BeautifulSoup(response.content)
-print(soup.prettify())
-
-
+print(n)
+n.test()

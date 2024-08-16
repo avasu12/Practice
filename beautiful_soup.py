@@ -1,3 +1,5 @@
+import requests
+
 html_doc = """<html><head><title>The Dormouse's story</title></head>
 <body>
 <p class="title"><b>The Dormouse's story</b></p>
@@ -25,5 +27,7 @@ print(soup.p)
 print(soup.p['class'])
 print(soup.a)
 print(soup.findall('a'))
-print(soup.find(id="link3")
+print(soup.find(id="link3"))
 
+
+r = requests.get('https://api.restful-api.dev/objects')
