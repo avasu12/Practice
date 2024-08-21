@@ -10,3 +10,6 @@ n = Node()
 
 print(n)
 n.test()
+
+x = memoryview(bytes(10))
+print(x)
