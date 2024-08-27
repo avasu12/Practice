@@ -13,3 +13,4 @@ n.test()
 
 x = memoryview(bytes(10))
 print(x)
+print("test commit")
