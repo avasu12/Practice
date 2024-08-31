@@ -1,10 +1,6 @@
-# Sudoku
+import random
 
-numberset = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
-# Get object identity
+number_set = random.sample(range(1, 10), 9)
+print(number_set)
 
-print(id(numberset))
-print(type(id(numberset)))
-
-print('test')
