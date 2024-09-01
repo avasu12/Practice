@@ -1,6 +1,23 @@
 import random
 
 
-number_set = random.sample(range(1, 10), 9)
-print(number_set)
+grid = list(range(1, 10))
+print(grid)
+print(type(grid))
+
+
+def row_check():
+    print("row check")
+
+def column_check():
+    print('test')
+
+def box_check():
+    print('ready')
+
+for digit in grid:
+    row_check()
+    column_check()
+    box_check()
+
 
