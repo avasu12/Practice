@@ -1,6 +1,10 @@
 import random
 
 
+
+with open('example.txt', 'w') as file:
+    file.write("Hello, World!")
+
 grid = list(range(1, 10))
 print(grid)
 print(type(grid))
