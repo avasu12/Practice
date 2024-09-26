@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import List, Dict, Optional
 
 df = pd.DataFrame({"test": 5}, index=['test1'])
 
@@ -32,6 +33,11 @@ def database_connect(username: str):
     print("In Database Connect")
 
 database_connect('string123')
+
+def complex_hint(parameter: List[Dict[str, Optional[int]]]):
+    print("In Compelx Hint")
+
+complex_hint([{"data": 3}])
 
 # "With" keyword
 
