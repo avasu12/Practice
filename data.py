@@ -21,3 +21,10 @@ print(df)
 df['transaction_date'] = pd.to_datetime(df['transaction_date'])
 max_date = df['transaction_date'].max()
 print(max_date)
+
+df['day'] = df['transaction_date'].dt.day
+df['day_type'] = ['even' if day % 2 == 0 else 'odd' for day in df['day']]
+
+group_sum = df.groupby('day_type')['amount'].sum()
+
+print(group_sum)
