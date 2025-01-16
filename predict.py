@@ -17,9 +17,27 @@ df = pd.DataFrame(data)
 
 print(df.head())
 
-# What is this?
+''' What is this?
 Features = df[['Age', 'Income']]
 Target = df['Purchased']
 
 print(Features)
 print(Target)
+
+'''
+
+# Numpy trial
+
+numpy_array = np.array([0,1,2,3,4,5])
+print(numpy_array)
+doubled_array = numpy_array * 2
+print(doubled_array)
+translated_array = numpy_array + 17
+print(translated_array)
+
+interval_range = np.arange(10, 50, 17)
+print(interval_range)
+mean = np.mean(doubled_array)
+print(mean)
+standard_deviation = np.std(doubled_array)
+print(standard_deviation)
