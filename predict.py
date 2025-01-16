@@ -41,3 +41,10 @@ mean = np.mean(doubled_array)
 print(mean)
 standard_deviation = np.std(doubled_array)
 print(standard_deviation)
+
+# Simple visualization
+
+random_data = np.random.randn(1000)
+
+sb.histplot(random_data, kde = True)
+plt.show()
