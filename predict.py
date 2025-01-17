@@ -1,10 +1,18 @@
 # Predictive Analytics
 
-
 import pandas as pd # Data Analysis Library
 import numpy as np # Scientific Computing Library
 import seaborn as sb # Visualization Library
 import matplotlib.pyplot as plt # Visualization Library
+
+'''
+To make a prediction:
+1. Get some data
+2. Get a model
+3. Use some data to train the model, and some to test the accuracy of the model
+4. Make predictions with the model
+'''
+
 
 # Dataset
 data = {
