@@ -24,6 +24,10 @@ print((10*2/1))
 
 num_chars = len("rv")
 print(num_chars)
+<<<<<<< HEAD
+=======
+
+>>>>>>> a94bf9688249a9825159d2a84b282f963030c8df
 '''
 
 '''
@@ -32,15 +36,27 @@ Count vowels in a string
 
 vowels = ['a', 'e', 'i', 'o', 'u']
 
+<<<<<<< HEAD
 def count_vowels(text: str) -> int:
     pass
     count = 0
     for character in text:
+=======
+def count_vowels(user_string: str) -> int:
+    count = 0
+    for character in user_input:
+>>>>>>> a94bf9688249a9825159d2a84b282f963030c8df
         if character in vowels:
             count+=1
     return count
 
+<<<<<<< HEAD
 
 user_input = input("Enter a string: ")
 count = count_vowels(user_input)
 print("There are ", count, "vowels in your string.")
+=======
+user_input = input("Enter a string: ")
+count = count_vowels(user_input)
+print("There are ", count, " vowels in your string.")
+>>>>>>> a94bf9688249a9825159d2a84b282f963030c8df

@@ -1,3 +1,15 @@
+import pandas as pd
+from typing import List, Dict, Optional
+
+df = pd.DataFrame({"test": 5}, index=['test1'])
+
+print(df)
+print(df["test"])
+
+scores = pd.Series([34,64,11,34,98,54,84,23], name="Score")
+print(scores)
+
+
 
 class Node:
     def __init__(self):
@@ -13,3 +25,24 @@ n.test()
 
 x = memoryview(bytes(10))
 print(x)
+print("test commit")
+
+# type hints
+
+def database_connect(username: str):
+    print("In Database Connect")
+
+database_connect('string123')
+
+def complex_hint(parameter: List[Dict[str, Optional[int]]]):
+    print("In Compelx Hint")
+
+complex_hint([{"data": 3}])
+
+# "With" keyword
+
+with open('file.txt', 'r') as x:
+    text_collection = x.readlines()
+
+for sentence in text_collection:
+    print(sentence)
