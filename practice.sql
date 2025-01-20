@@ -20,3 +20,13 @@ LIMIT
 
 */
 
+select concat(Name, "(", left(Occupation, 1), ")")
+from occupations
+order by Name asc
+;
+
+select concat("There are a total of ", count(occupation), " ", lower(Occupation), "s.")
+from occupations
+group by Occupation
+order by count(Occupation)
+;
