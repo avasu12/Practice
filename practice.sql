@@ -20,3 +20,11 @@ LIMIT
 
 */
 
+select distinct city
+from station
+where left(city, 1) in ('a', 'e', 'i', 'o', 'u')
+;
+
+select (case when Occupation = 'Doctor' then Name else null end) as Doctor, (case when Occupation = 'Professor' then Name else null end), (case when Occupation = 'Singer' then Name else null end) as Singer, (case when Occupation = 'Actor' then Name else null end) as Actor
+from occupations
+;
