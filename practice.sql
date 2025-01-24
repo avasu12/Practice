@@ -41,3 +41,14 @@ select client_id, extract(month from time_id) as month, count(distinct user_id)
 from fact_events
 group by client_id, month
 ;
+
+/* 
+
+Group by defines the granularity of aggregation.
+
+*/
+select city, property_type, avg(bathrooms), avg(bedrooms)
+from airbnb_search_details
+group by city, property_type
+order by city
+;
