@@ -42,6 +42,7 @@ from fact_events
 group by client_id, month
 ;
 
+<<<<<<< HEAD
 /* 
 
 Group by defines the granularity of aggregation.
@@ -51,4 +52,19 @@ select city, property_type, avg(bathrooms), avg(bedrooms)
 from airbnb_search_details
 group by city, property_type
 order by city
+=======
+
+select concat(extract(year from shipment_date), '-', extract(month from shipment_date)) as year_month, count(sub_id & shipment_id) as shipments
+from amazon_shipment
+group by year_month
+;
+
+
+select product_id, sum(cost_in_dollars * units_sold) as total_revenue
+from online_orders
+where date between '2022-01-1' and '2022-06-30'
+group by product_id
+order by total_revenue desc
+limit 5
+>>>>>>> 4b314fadac95390a76933728403d52b46443c24d
 ;

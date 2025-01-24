@@ -1,5 +1,13 @@
 # Predictive Analytics
 
+'''
+Artificial intelligence - something man-made, and smart.
+It's a set of techniques (or "ways" or "algorithms") to be smart. Eg: learning, processing, vision
+One technique is learning, or machine learning.
+Machines can learn with or without supervision ... ??
+
+'''
+
 import pandas as pd # Data Analysis Library
 import numpy as np # Scientific Computing Library
 import seaborn as sb # Visualization Library
