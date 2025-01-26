@@ -39,7 +39,6 @@ select client_id, extract(month from time_id) as month, count(distinct user_id)
 from fact_events
 group by client_id, month;
 
-<<<<<<< HEAD
 /* 
 
 Group by defines the granularity of aggregation.
@@ -49,7 +48,6 @@ select city, property_type, avg(bathrooms), avg(bedrooms)
 from airbnb_search_details
 group by city, property_type
 order by city
-=======
 
 select concat(extract(year from shipment_date), '-', extract(month from shipment_date)) as year_month, count(sub_id & shipment_id) as shipments
 from amazon_shipment
@@ -62,7 +60,6 @@ where date between '2022-01-1' and '2022-06-30'
 group by product_id
 order by total_revenue desc
 limit 5;
->>>>>>> 4b314fadac95390a76933728403d52b46443c24d
 
 
 select event_name, count(event_name) as eventcount
@@ -70,6 +67,39 @@ from playbook_events
 where device = 'macbook pro'
 group by event_name
 order by eventcount desc;
+
+select activity_date, pe_description
+from los_angeles_restaurant_health_inspections
+where facility_name = 'STREET CHURROS' and score < 95;
+
+select extract(year from inspection_date) as year, count(violation_id) 
+from sf_restaurant_health_violations
+where business_name = 'Roxanne Cafe'
+group by year;
+
+-- Employees that joined after April (any year)
+
+select count(worker_id)
+from worker
+where department = 'Admin' and extract(month from joining_date) between 4 and 12;
+
+select department, count(worker_id)
+from worker
+where extract(month from joining_date) between 4 and 12
+group by department;
+
+
+/* 
+
+The almighty join.
+Why does every recruiter love this?
+
+*/
+
+select first_name, last_name, city, order_details
+from customers
+left join orders on cust_id = customers.id
+order by first_name asc, order_details asc;
 
 /* 
 
