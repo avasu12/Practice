@@ -101,6 +101,12 @@ from customers
 left join orders on cust_id = customers.id
 order by first_name asc, order_details asc;
 
+select first_name, order_date, order_details, total_order_cost
+from customers
+inner join orders on customers.id = cust_id
+where first_name = 'Jill' or first_name = 'Eva'
+order by customers.id asc;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
@@ -112,3 +118,20 @@ They don't take up more storage; they're virtual tables
 create view players as
 select username, nation, avatar
 from biome3dusers;
+
+
+/* 
+
+Common table expressions: they're like variables that temporarily hold tables (until a query is done running). 
+Something like "with" in python.
+
+*/
+
+with department_average as (
+    select department, avg(salary) as average_salary
+    from employee
+    group by department
+)
+select e.department, first_name, salary, average_salary
+from employee as e
+inner join department_average on e.department = department_average.department;
