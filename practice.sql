@@ -135,3 +135,17 @@ with department_average as (
 select e.department, first_name, salary, average_salary
 from employee as e
 inner join department_average on e.department = department_average.department;
+
+
+-- Data types in SQL:
+-- boolean: true/false
+select distinct home_library_code
+from library_usage
+where circulation_active_year = 2016 
+    and notice_preference_definition = 'email'
+    and provided_email_address = false;
+
+-- Operators - ilike
+select employeename, basepay
+from sf_public_salaries
+where jobtitle ilike '%CAPTAIN%';
