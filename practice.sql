@@ -114,6 +114,11 @@ inner join orders on customers.id = cust_id
 where first_name = 'Jill' or first_name = 'Eva'
 order by customers.id asc;
 
+select location, avg(popularity) as average_popularity
+from facebook_employees
+inner join facebook_hack_survey on employee_id = id
+group by location;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
