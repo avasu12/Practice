@@ -27,7 +27,14 @@ where left(city, 1) in ('a', 'e', 'i', 'o', 'u');
 select (case when Occupation = 'Doctor' then Name else null end) as Doctor, (case when Occupation = 'Professor' then Name else null end), (case when Occupation = 'Singer' then Name else null end) as Singer, (case when Occupation = 'Actor' then Name else null end) as Actor
 from occupations;
 
+select artist, count(id) as occurence
+from spotify_worldwide_daily_song_ranking
+group by artist
+order by occurence desc;
+
 /*
+
+DAX-SQL Comparisons
 
 DAX: MONTH(<datetime>), COUNT()
 SQL: EXTRACT(part FROM date), COUNT()
@@ -136,8 +143,23 @@ select e.department, first_name, salary, average_salary
 from employee as e
 inner join department_average on e.department = department_average.department;
 
+/* 
 
--- Data types in SQL:
+Operators
+
+*/
+-- ilike is case insenstive
+select employeename, basepay
+from sf_public_salaries
+where jobtitle ilike '%CAPTAIN%';
+
+
+/*
+
+Data types: SQL
+
+*/
+
 -- boolean: true/false
 select distinct home_library_code
 from library_usage
@@ -145,7 +167,10 @@ where circulation_active_year = 2016
     and notice_preference_definition = 'email'
     and provided_email_address = false;
 
--- Operators - ilike
-select employeename, basepay
-from sf_public_salaries
-where jobtitle ilike '%CAPTAIN%';
+-- yearly_salary is bigint. It is 8 bytes long, or 64 bits long
+select * 
+from lyft_drivers
+where yearly_salary <= 30000 or yearly_salary >= 70000;
+
+
+
