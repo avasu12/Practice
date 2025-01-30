@@ -32,6 +32,10 @@ from spotify_worldwide_daily_song_ranking
 group by artist
 order by occurence desc;
 
+select distinct hotel_name, total_number_of_reviews
+from hotel_reviews
+order by total_number_of_reviews desc;
+
 /*
 
 DAX-SQL Comparisons
@@ -45,6 +49,11 @@ SQL: EXTRACT(part FROM date), COUNT()
 select client_id, extract(month from time_id) as month, count(distinct user_id)
 from fact_events
 group by client_id, month;
+
+-- Context doesn't exist in SQL
+-- ALL: removes all context filters (query context: row & column filters, slicers, and report filters)
+-- ALLSELECTED: removes selected context filters (Only selected row & column filters. slicers & report filters still take effect)
+-- SQL simply filters using "WHERE"
 
 /* 
 
