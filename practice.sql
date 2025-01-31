@@ -5,6 +5,10 @@ select count(city) - count(distinct city) from station;
 select city, length(city) from station order by length(city) desc limit 1;
 select city, length(city) from station order by length(city), city asc limit 1;
 
+select count(movie) 
+from oscar_nominees
+where nominee = 'Abigail Breslin';
+
 /*
 SQL Query order of execution:
 
@@ -127,6 +131,11 @@ select location, avg(popularity) as average_popularity
 from facebook_employees
 inner join facebook_hack_survey on employee_id = id
 group by location;
+
+select distinct p.post_date, p.post_id, p.post_keywords, p.post_text, p.poster
+from facebook_reactions as r
+left join facebook_posts as p on r.post_id = p.post_id
+where reaction = 'heart';
 
 /* 
 
