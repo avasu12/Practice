@@ -16,8 +16,32 @@ plt.show()
 '''
 
 # To "plot" means to draw/mark points on a graph
-x = [1, 2, 3, 4, 5, 6, 7]
-y = [20, 30, 20, 10, 5, 2, 1]
+df = pd.read_csv('Secret Directory')
+print(df.head())
 
-plt.plot(x, y)
+
+df['Duration'] = pd.to_timedelta(df['Duration'])
+df['decimal_hours'] = df['Duration'].dt.total_seconds() / 3600
+df['decimal_hours'] = df['decimal_hours'].round(2)
+df['Start'] = pd.to_datetime(df['Start'])
+
+print(df)
+print(df.dtypes)
+
+
+plt.figure(figsize=(10, 6))
+
+# Group by 'category' and plot each category as a separate line
+for category, group in df.groupby('Work Item'):
+    plt.plot(group['Start'], group['decimal_hours'], label=category)
+
+# Add labels and title
+plt.xlabel('Day')
+plt.ylabel('Hours')
+plt.title('Hours by Day and Category')
+plt.legend(title='Category')
+
+# Show the plot
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
