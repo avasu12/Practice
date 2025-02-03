@@ -1,14 +1,12 @@
 import pandas as pd
 from typing import List, Dict, Optional
 
-df = pd.DataFrame({"test": 5}, index=['test1'])
 
-print(df)
-print(df["test"])
-
-scores = pd.Series([34,64,11,34,98,54,84,23], name="Score")
-print(scores)
-
+data_frame = pd.DataFrame({'test': [1,4,6,7,9], 'test2': [2,3,5, 0,1]})
+print(data_frame)
+print(data_frame['test2'])
+print(data_frame.describe())
+print(data_frame['test2'].sum())
 
 
 class Node:
@@ -20,12 +18,12 @@ class Node:
 
 n = Node()
 
-print(n)
+# print(n)
 n.test()
 
 x = memoryview(bytes(10))
-print(x)
-print("test commit")
+# print(x)
+# print("test commit")
 
 # type hints
 

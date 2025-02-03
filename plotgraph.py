@@ -16,7 +16,7 @@ plt.show()
 '''
 
 # To "plot" means to draw/mark points on a graph
-df = pd.read_csv('Secret Directory')
+df = pd.read_csv('~/Downloads/My Time Slices.csv')
 print(df.head())
 
 
