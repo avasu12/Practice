@@ -200,5 +200,14 @@ select *
 from lyft_drivers
 where yearly_salary <= 30000 or yearly_salary >= 70000;
 
+-- end_time is of type "timestamp (without timezone)" it is 8 bytes, or 64 bits long
+select bike_number, max(end_time) as last_use
+from dc_bikeshare_q1_2012
+group by bike_number
+order by last_use desc;
 
-
+-- the name columns are of type "text" they can be of variable, unlimited length
+select id, first_name, last_name, department_id, max(salary) as current_salary
+from ms_employee_salary
+group by id, first_name, last_name, department_id
+order by id;
