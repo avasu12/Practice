@@ -211,3 +211,14 @@ select id, first_name, last_name, department_id, max(salary) as current_salary
 from ms_employee_salary
 group by id, first_name, last_name, department_id
 order by id;
+
+select abs(
+    max(
+        case when d.department = 'marketing' then salary end
+    ) - max(
+        case when d.department = 'engineering' then salary end
+    )
+) as absolute_difference
+from db_employee as e
+inner join db_dept as d on e.department_id = d.id
+where d.department = 'marketing' or d.department = 'engineering';
