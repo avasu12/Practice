@@ -14,6 +14,12 @@ from hotel_reviews
 where hotel_name = 'Hotel Arena'
 group by hotel_name, reviewer_score;
 
+select child_asin, parent_asin, campaign_name, sum(spend)
+from sales_and_traffic
+right join advertised_asin on child_asin = promoted_asin
+where brand = 'Stucco'
+group by campaign_name, parent_asin, child_asin;
+
 /*
 SQL Query order of execution:
 
