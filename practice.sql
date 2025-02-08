@@ -39,8 +39,18 @@ select distinct city
 from station
 where left(city, 1) in ('a', 'e', 'i', 'o', 'u');
 
+/*
+
+Conditional Expressions
+
+*/
 select (case when Occupation = 'Doctor' then Name else null end) as Doctor, (case when Occupation = 'Professor' then Name else null end), (case when Occupation = 'Singer' then Name else null end) as Singer, (case when Occupation = 'Actor' then Name else null end) as Actor
 from occupations;
+
+select (count(case when country = 'USA' then user_id end) / count(user_id)) as US_Share
+from fb_active_users
+where status = 'open';
+
 
 select artist, count(id) as occurence
 from spotify_worldwide_daily_song_ranking
