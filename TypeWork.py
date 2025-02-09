@@ -7,6 +7,13 @@ print(data_frame)
 print(data_frame['test2'])
 print(data_frame.describe())
 print(data_frame['test2'].sum())
+data_frame2 = pd.DataFrame({'Fruits': ['dragonfruit', 'mango', 'papaya', 'jackfruit'], 'Vegetables': ['Asparagus', 'Brussel Sprouts', 'Carrots', 'Beans'], 'test2': [3, 5, 3, 0]})
+print(data_frame2)
+frames = [data_frame2, data_frame]
+test = pd.concat(frames)
+print(test)
+testjoin = pd.merge(data_frame, data_frame2, on="test2")
+print(testjoin)
 
 
 class Node:
