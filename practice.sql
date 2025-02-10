@@ -238,3 +238,15 @@ select abs(
 from db_employee as e
 inner join db_dept as d on e.department_id = d.id
 where d.department = 'marketing' or d.department = 'engineering';
+
+
+/*
+
+Window functions - what are they?
+
+*/
+
+select id, sale_date, amount, 
+sum(amount) over (partition by id order by sale_date)
+from sales
+order by id;
