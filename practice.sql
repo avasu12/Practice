@@ -256,3 +256,8 @@ order by id;
 select account_id, final_price, avg(final_price) over (partition by account_id)
 from premium_accounts_by_day
 order by account_id;
+
+-- This creates a window that is the whole table. 
+select account_id, final_price, avg(final_price) over ()
+from premium_accounts_by_day
+order by account_id;
