@@ -242,7 +242,9 @@ where d.department = 'marketing' or d.department = 'engineering';
 
 /*
 
-Window functions - what are they?
+Window functions
+Windows are a subset of rows that you can perform operations on
+It's like aggregating, but without losing rows
 
 */
 
@@ -250,3 +252,7 @@ select id, sale_date, amount,
 sum(amount) over (partition by id order by sale_date)
 from sales
 order by id;
+
+select account_id, final_price, avg(final_price) over (partition by account_id)
+from premium_accounts_by_day
+order by account_id;
