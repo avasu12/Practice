@@ -261,3 +261,6 @@ order by account_id;
 select account_id, final_price, avg(final_price) over ()
 from premium_accounts_by_day
 order by account_id;
+
+select student_id, row_number() over ()
+from sat_scores;
