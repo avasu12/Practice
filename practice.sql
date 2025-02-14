@@ -187,6 +187,23 @@ select e.department, first_name, salary, average_salary
 from employee as e
 inner join department_average on e.department = department_average.department;
 
+select * 
+from sat_scores;
+
+with middle as (
+    select max(data_index)/2 as median_row, 
+    (case when max(data_index)%2 = 0  then max(data_index)/2 else (max(data_index)/2) + 1 end) as next_row
+    from (
+        select sat_writing, row_number() over () as data_index
+        from sat_scores
+    ) as numbered_scores
+), median_score as (
+    select sat_writing, median_row, next_row, row_number() over () as row_index
+    from sat_scores
+    natural join middle
+) select *
+from median_score;
+
 /* 
 
 Operators
