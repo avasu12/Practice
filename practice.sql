@@ -204,6 +204,20 @@ with middle as (
 ) select *
 from median_score;
 
+with row_table as(
+    select id, sat_writing, row_number() over (order by sat_writing) as row_index
+    from sat_scores
+), median_table as(
+    select max(row_index)/2 as middle, (case when max(row_index)%2 = 0 then max(row_index)/2 else (max(row_index)/2)+1 end) as middle_next
+    from row_table
+), median_score as(
+    select avg(sat_writing) as median_value
+    from row_table
+    inner join median_table on row_index = middle or row_index = middle_next
+) select id
+from sat_scores
+inner join median_score on sat_writing = median_value;
+
 /* 
 
 Operators
