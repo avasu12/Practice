@@ -295,3 +295,19 @@ order by account_id;
 
 select student_id, row_number() over ()
 from sat_scores;
+
+
+/*
+
+Sorting
+
+*/
+
+-- This sorts by username in ascending order
+select id, username, department
+from employee
+order by 2;
+
+-- The records in a window can be ordered
+select id, row_number() over (partition by department order by id) as row_num
+from employee;
