@@ -311,3 +311,13 @@ order by 2;
 -- The records in a window can be ordered
 select id, row_number() over (partition by department order by id) as row_num
 from employee;
+
+
+/*
+
+Math functions
+
+*/
+
+select random()
+from sample_table;
