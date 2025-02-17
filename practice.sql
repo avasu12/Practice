@@ -321,3 +321,13 @@ Math functions
 
 select random()
 from sample_table;
+
+/*
+
+Subqueries
+
+*/
+
+select *
+from sample_table
+where average_sales > (select max(sales) from sample_table)
