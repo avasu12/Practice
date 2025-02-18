@@ -13,5 +13,10 @@ plt.show()
 
 x = [1,2,3,4,5]
 y = [5,7,8,9,1]
-figure = plt.figure()
+# scatterplot = plt.scatter(x, y)
+# bargraph = plt.bar(x, y)
+# stemgraph = plt.stem(x, y)
+# stackgraph = plt.stackplot(x, y)
+
+piegraph = plt.pie(y)
 plt.show()
