@@ -21,6 +21,7 @@ where brand = 'Stucco'
 group by campaign_name, parent_asin, child_asin;
 
 /*
+
 SQL Query order of execution:
 
 FROM
@@ -223,6 +224,21 @@ with row_table as(
 ) select id
 from sat_scores
 inner join median_score on sat_writing = median_value;
+
+with counts_table as (
+    select candidate, round(cast(1 as numeric)/nullif(cast(count(candidate) as numeric), 0), 2) as weight
+    from voting_results
+    group by candidate
+    order by candidate
+), tally as (
+    select v.candidate, v.voter, sum(c.weight) as total_votes
+    from voting_results as v
+    inner join counts_table as c on c.candidate = v.candidate
+    group by v.voter, v.candidate
+    order by total_votes desc
+)
+select *
+from tally;
 
 /* 
 
