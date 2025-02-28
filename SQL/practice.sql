@@ -344,6 +344,23 @@ Math functions
 select random()
 from sample_table;
 
+with vote_weights as(
+    select *, round(cast(1 as numeric), 3)/count(voter) over (partition by voter) as weight
+    from voting_results
+), tally as (
+    select candidate, sum(weight) as total_votes
+    from vote_weights
+    group by candidate
+    order by total_votes desc
+), ranked_tally as (
+    select *, rank() over (order by total_votes desc) as candidate_rank
+    from tally
+    where candidate is not null
+) select candidate
+from ranked_tally
+where candidate_rank = 1;
+
+
 /*
 
 Subqueries
