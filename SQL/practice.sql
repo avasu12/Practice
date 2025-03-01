@@ -380,3 +380,4 @@ Display random text
 select entry_date, count(distinct account_id) as no_prem_paid, 'random_text' as days_later
 from premium_accounts_by_day
 group by entry_date;
+
