@@ -1,10 +1,44 @@
 import psycopg2
+from psycopg2 import sql
 
-conn = psycopg2.connect("dbname=Test1 user=ptest1")
+# Database connection parameters
+hostname = 'localhost'  
+port = 'SecretSecret'
+dbname = 'SecretSecret'
+user = 'SecretSecret'
+password = 'SecretSecret'
 
-print(conn)
+# Establish connection
+try:
+    connection = psycopg2.connect(
+        host=hostname,
+        port=port,
+        dbname=dbname,
+        user=user,
+        password=password
+    )
+    print("Connection successful!")
+    cursor = connection.cursor()
 
-cur = conn.cursor("SELECT * FROM test2;")
+    query = "SELECT * FROM test3;"
+    cursor.execute(query)
 
-print(cur)
+    # Fetch results
+    rows = cursor.fetchall()
+    print("Data from your_table_name:")
+    for row in rows:
+        print(row)
+
+    connection.commit()
+
+except Exception as error:
+    print(f"Error: {error}")
+
+finally:
+    # Close the cursor and connection
+    if cursor:
+        cursor.close()
+    if connection:
+        connection.close()
+    print("Connection closed.")
 
