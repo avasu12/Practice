@@ -16,3 +16,11 @@ where a.final_price > 0
 group by a.entry_date
 order by a.entry_date
 limit 7;
+
+
+-- Multiple types of joins over various tables
+select *
+from customers as a
+inner join orders as b on a.customer_id = b.customer_id
+right join payments as c on a.customer_id = c.customer_id
+left join payments as d on a.customer_id = d.customer_id;
