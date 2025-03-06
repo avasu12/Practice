@@ -17,6 +17,12 @@ group by a.entry_date
 order by a.entry_date
 limit 7;
 
+select * 
+from user_flags as a
+inner join user_flags as b on a.user_firstname = b.user_firstname
+right join user_flags as c on a.user_firstname = c.user_firstname
+;
+
 
 -- Multiple types of joins over various tables
 select *
