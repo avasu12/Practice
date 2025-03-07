@@ -30,3 +30,8 @@ from customers as a
 inner join orders as b on a.customer_id = b.customer_id
 right join payments as c on a.customer_id = c.customer_id
 left join payments as d on a.customer_id = d.customer_id;
+
+select *
+from employees as e1
+inner join employees as e2 on e1.id = e2.mgr_id
+right join department as d on e1.dept_id = e1.dept_id;

@@ -62,6 +62,11 @@ select distinct hotel_name, total_number_of_reviews
 from hotel_reviews
 order by total_number_of_reviews desc;
 
+select *, count(emp_id) as total_staff
+from emp_table
+group by mgr_id
+having total_staff <= 2;
+
 /*
 
 DAX-SQL Comparisons
