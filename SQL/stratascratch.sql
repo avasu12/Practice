@@ -13,3 +13,11 @@ with mytable as(
 select full_name
 from mytable
 where total_approved = (select max(total_approved) from mytable);
+
+-- Medium - Spotify
+
+select distinct year_rank, group_name, song_name
+from billboard_top_100_year_end
+where year = 2010
+order by year_rank
+limit 10;
