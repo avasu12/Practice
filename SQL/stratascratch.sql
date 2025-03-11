@@ -30,3 +30,8 @@ select distinct business_name, (
     else 'other' end
 ) as business_class
 from sf_restaurant_health_violations;
+
+--Medium - Meta
+select type, round(sum((case when processed is true then 1 else null end))::numeric/count(processed)::numeric, 2)
+from facebook_complaints
+group by type;
