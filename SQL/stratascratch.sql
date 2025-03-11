@@ -21,3 +21,12 @@ from billboard_top_100_year_end
 where year = 2010
 order by year_rank
 limit 10;
+
+-- Medium - City of San Francisco
+select distinct business_name, (
+    case when business_name ilike '%restaurant%' then 'restaurant'
+    when business_name ilike '%cafe%' or business_name ilike '%café%' or business_name ilike '%coffee%' then 'cafe'
+    when business_name ilike '%school%' then 'school' 
+    else 'other' end
+) as business_class
+from sf_restaurant_health_violations;
