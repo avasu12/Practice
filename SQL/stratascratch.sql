@@ -35,3 +35,10 @@ from sf_restaurant_health_violations;
 select type, round(sum((case when processed is true then 1 else null end))::numeric/count(processed)::numeric, 2)
 from facebook_complaints
 group by type;
+
+--Medium - Meta
+select cust_id, sum(total_order_cost) as total_revenue
+from orders
+where extract(month from order_date) = 3 and extract(year from order_date) = 2019
+group by cust_id
+order by total_revenue desc;
