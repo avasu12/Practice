@@ -42,3 +42,8 @@ from orders
 where extract(month from order_date) = 3 and extract(year from order_date) = 2019
 group by cust_id
 order by total_revenue desc;
+
+--Medium - Google
+select trim(unnest(string_to_array(lower(contents), ' ')), ',.') as word, count(*) as occurrences
+from google_file_store
+group by word;
