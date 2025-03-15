@@ -47,3 +47,8 @@ order by total_revenue desc;
 select trim(unnest(string_to_array(lower(contents), ' ')), ',.') as word, count(*) as occurrences
 from google_file_store
 group by word;
+
+--Medium - Tesla/Google
+select survived, sum(case when pclass = 1 then 1 else 0 end) as "First class", sum(case when pclass = 2 then 1 else 0 end) as "Second class", sum(case when pclass = 3 then 1 else 0 end) as "Third class"
+from titanic
+group by survived;
