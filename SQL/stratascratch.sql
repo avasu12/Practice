@@ -52,3 +52,17 @@ group by word;
 select survived, sum(case when pclass = 1 then 1 else 0 end) as "First class", sum(case when pclass = 2 then 1 else 0 end) as "Second class", sum(case when pclass = 3 then 1 else 0 end) as "Third class"
 from titanic
 group by survived;
+
+--Medium - Amazon 
+select salary
+from employee
+where salary < (select max(salary) from employee)
+order by salary desc
+limit 1;
+
+--Medium - Dropbox
+select salary
+from employee
+order by salary desc
+offset 1
+limit 1;
