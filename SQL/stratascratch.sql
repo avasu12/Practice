@@ -66,3 +66,8 @@ from employee
 order by salary desc
 offset 1
 limit 1;
+
+--Medium - Walmart
+select e1.first_name, e1.salary
+from employee e1
+inner join employee e2 on e2.id = e1.manager_id and e1.salary > e2.salary;
