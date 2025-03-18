@@ -81,6 +81,15 @@ select client_id, extract(month from time_id) as month, count(distinct user_id)
 from fact_events
 group by client_id, month;
 
+/*
+
+DAX: A "group by" is possible with SUMMARIZE()
+
+*/
+select department, first_name, max(salary)
+from employee
+group by department, first_name;
+
 -- Context doesn't exist in SQL
 -- ALL: removes all context filters (query context: row & column filters, slicers, and report filters)
 -- ALLSELECTED: removes selected context filters (Only selected row & column filters. slicers & report filters still take effect)
