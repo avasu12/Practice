@@ -394,6 +394,10 @@ select *
 from sample_table
 where average_sales > (select max(sales) from sample_table)
 
+select *
+from student_performance
+where average_stanine < (select max(score) from student_scores);
+
 /*
 
 Display random text
