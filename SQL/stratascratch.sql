@@ -71,3 +71,17 @@ limit 1;
 select e1.first_name, e1.salary
 from employee e1
 inner join employee e2 on e2.id = e1.manager_id and e1.salary > e2.salary;
+
+--Medium - Asana
+with new_table as(
+    select department, first_name, salary, max(salary) over (partition by department) as max_salary
+    from employee
+)
+select department, first_name, max_salary
+from new_table
+where salary = max_salary;
+
+--Medium - Salesforce
+select first_name, target
+from salesforce_employees
+where manager_id = 13 and target = (select max(target) from salesforce_employees where manager_id = 13);
