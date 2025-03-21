@@ -85,3 +85,19 @@ where salary = max_salary;
 select first_name, target
 from salesforce_employees
 where manager_id = 13 and target = (select max(target) from salesforce_employees where manager_id = 13);
+
+--Medium - Walmart
+select c.id, count(o.id) as total_orders
+from customers as c
+right join orders as o on c.id = o.cust_id
+group by c.id
+order by total_orders desc
+limit 1;
+
+--Medium - Shopify
+select first_name, sum(total_order_cost) as order_cost, order_date
+from customers as c
+right join orders as o on c.id = o.cust_id
+group by first_name, order_date
+order by order_cost desc
+limit 1;
