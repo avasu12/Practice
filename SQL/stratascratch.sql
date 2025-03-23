@@ -101,3 +101,17 @@ right join orders as o on c.id = o.cust_id
 group by first_name, order_date
 order by order_cost desc
 limit 1;
+
+--Medium - ESPN
+select games, count(distinct name) as atheletes
+from olympics_athletes_events
+group by games
+order by atheletes desc
+limit 1;
+
+--Medium - Spotify
+select trackname, count(trackname) as rank_frequency 
+from spotify_worldwide_daily_song_ranking
+where position = 1
+group by trackname
+order by rank_frequency desc;

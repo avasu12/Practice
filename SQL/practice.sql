@@ -33,6 +33,20 @@ HAVING
 SELECT
 ORDER BY
 LIMIT
+OFFSET
+
+*/
+
+/*
+
+Index of concepts:
+1. Operators
+    i. ilike
+    ii. 
+2. Delimiters:
+    i. ' - String literals
+    ii. " - Identifiers
+    iii. () - Function arguments
 
 */
 
