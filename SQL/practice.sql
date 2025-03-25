@@ -41,8 +41,12 @@ OFFSET
 
 Index of concepts:
 1. Operators
-    i. ilike
+    i. Pattern matching: ilike, like
     ii. 
+2. Functions
+    i. CASE WHEN ... THEN ... ELSE ... END
+    ii. NULLIF
+    iii. String - lower()
 2. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
