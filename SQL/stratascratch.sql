@@ -115,3 +115,30 @@ from spotify_worldwide_daily_song_ranking
 where position = 1
 group by trackname
 order by rank_frequency desc;
+
+--Medium - Wine magazine
+select winery
+from winemag_p1
+where lower(description) ~ '\y(plum|cherry|rose|hazelnut)\y';
+
+--Medium - Yelp
+select name, review_count
+from yelp_business
+order by review_count desc
+limit 5;
+
+--Medium - Yelp
+explain
+select name, review_count
+from yelp_business
+order by review_count desc
+limit 5;
+
+explain
+with ranked_businesses as(
+    select name, review_count, rank() over (order by review_count desc) as reviews_rank
+    from yelp_business
+)
+select name, review_count
+from ranked_businesses
+where reviews_rank <= 5;
