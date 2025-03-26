@@ -142,3 +142,13 @@ with ranked_businesses as(
 select name, review_count
 from ranked_businesses
 where reviews_rank <= 5;
+
+--Medium - Yelp
+with category_table as (
+    select unnest(string_to_array(categories, ';')) as category, review_count
+    from yelp_business
+)
+select category, sum(review_count) as total_reviews
+from category_table
+group by category
+order by total_reviews desc;

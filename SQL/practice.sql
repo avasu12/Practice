@@ -1,25 +1,3 @@
-select name from city where countrycode = 'JPN';
-select distinct city from station where ID % 2 = 0;
-select count(city) - count(distinct city) from station;
-
-select city, length(city) from station order by length(city) desc limit 1;
-select city, length(city) from station order by length(city), city asc limit 1;
-
-select count(movie) 
-from oscar_nominees
-where nominee = 'Abigail Breslin';
-
-select hotel_name,reviewer_score, count(*) 
-from hotel_reviews
-where hotel_name = 'Hotel Arena'
-group by hotel_name, reviewer_score;
-
-select child_asin, parent_asin, campaign_name, sum(spend)
-from sales_and_traffic
-right join advertised_asin on child_asin = promoted_asin
-where brand = 'Stucco'
-group by campaign_name, parent_asin, child_asin;
-
 /*
 
 SQL Query order of execution:
@@ -46,13 +24,37 @@ Index of concepts:
 2. Functions
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
-    iii. String - lower()
+    iii. String - lower(), string_to_array()
+    iv. Array - unnest()
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
     iii. () - Function arguments
 
 */
+
+
+select name from city where countrycode = 'JPN';
+select distinct city from station where ID % 2 = 0;
+select count(city) - count(distinct city) from station;
+
+select city, length(city) from station order by length(city) desc limit 1;
+select city, length(city) from station order by length(city), city asc limit 1;
+
+select count(movie) 
+from oscar_nominees
+where nominee = 'Abigail Breslin';
+
+select hotel_name,reviewer_score, count(*) 
+from hotel_reviews
+where hotel_name = 'Hotel Arena'
+group by hotel_name, reviewer_score;
+
+select child_asin, parent_asin, campaign_name, sum(spend)
+from sales_and_traffic
+right join advertised_asin on child_asin = promoted_asin
+where brand = 'Stucco'
+group by campaign_name, parent_asin, child_asin;
 
 select distinct city
 from station
