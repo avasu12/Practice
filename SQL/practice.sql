@@ -26,10 +26,20 @@ Index of concepts:
     ii. NULLIF
     iii. String - lower(), string_to_array()
     iv. Array - unnest()
+    v. Window - rank(), dense_rank()
+    vi. Date - EXTRACT(part FROM attribute)
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
     iii. () - Function arguments
+
+*/
+
+/*
+
+Strategies:
+
+1. Use inner joins to filter tables
 
 */
 

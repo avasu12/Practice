@@ -152,3 +152,18 @@ select category, sum(review_count) as total_reviews
 from category_table
 group by category
 order by total_reviews desc;
+
+--Medium - Yelp
+explain
+select business_name, review_text
+from yelp_reviews
+where cool = (select max(cool) from yelp_reviews);
+
+explain
+with maxcool as (
+    select max(cool) as bigcool
+    from yelp_reviews
+)
+select business_name, review_text
+from yelp_reviews
+join maxcool on cool = bigcool;
