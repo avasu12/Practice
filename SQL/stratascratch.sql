@@ -167,3 +167,19 @@ with maxcool as (
 select business_name, review_text
 from yelp_reviews
 join maxcool on cool = bigcool;
+
+--Medium - Meta
+with energy_usage as (
+    select * from fb_eu_energy
+    union all
+    select * from fb_asia_energy
+    union all
+    select * from fb_na_energy
+), consumption_totals as(
+    select date, sum(consumption) as total_consumption
+    from energy_usage
+    group by date
+)
+select *
+from consumption_totals
+where total_consumption = (select max(total_consumption) from consumption_totals);
