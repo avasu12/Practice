@@ -7,11 +7,14 @@ JOIN ON
 WHERE
 GROUP BY
 HAVING
+Window Functions
 
 SELECT
 ORDER BY
 LIMIT
 OFFSET
+
+UNION, INTERSECT, EXCEPT
 
 */
 
@@ -284,6 +287,16 @@ with counts_table as (
 select *
 from tally;
 
+with tc_table as(
+    select e.id, e.employee_title, e.sex, salary, sum(bonus) as bonus
+    from sf_employee as e
+    inner join sf_bonus as b on e.id = b.worker_ref_id
+    group by e.id, e.employee_title, e.sex, salary
+)
+select employee_title, sex, sum(salary + bonus) as total_compensation
+from tc_table
+group by employee_title, sex;
+
 /* 
 
 Operators
@@ -437,4 +450,7 @@ Display random text
 select entry_date, count(distinct account_id) as no_prem_paid, 'random_text' as days_later
 from premium_accounts_by_day
 group by entry_date;
+
+
+
 
