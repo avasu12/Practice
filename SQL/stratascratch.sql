@@ -183,3 +183,14 @@ with energy_usage as (
 select *
 from consumption_totals
 where total_consumption = (select max(total_consumption) from consumption_totals);
+
+--Medium - City of SanFrancisco
+with total_comp as(
+    select employee_title, sex, salary, sum(bonus) as bonus_pay
+    from sf_employee as e
+    inner join sf_bonus as b on e.id = b.worker_ref_id
+    group by employee_title, sex, salary
+)
+select employee_title, sex, avg(salary + bonus_pay) as avg_comp
+from total_comp
+group by employee_title, sex;
