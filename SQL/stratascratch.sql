@@ -194,3 +194,13 @@ with total_comp as(
 select employee_title, sex, avg(salary + bonus_pay) as avg_comp
 from total_comp
 group by employee_title, sex;
+
+--Medium - Airbnb
+select distinct h.host_id, g.guest_id
+from airbnb_hosts as h
+inner join airbnb_guests as g on h.gender = g.gender and h.nationality = g.nationality;
+
+--Medium - Google/Amazon
+select (count(case when address <> '' then c.id else null end)::decimal/count(c.id)::decimal)*100 as percentage
+from orders as o
+inner join customers as c on o.cust_id = c.id;

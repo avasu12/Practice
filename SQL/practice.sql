@@ -23,7 +23,7 @@ UNION, INTERSECT, EXCEPT
 Index of concepts:
 1. Operators
     i. Pattern matching: ilike, like, ~
-    ii. 
+    ii. Types - ::
 2. Functions
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
@@ -31,6 +31,7 @@ Index of concepts:
     iv. Array - unnest()
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
+    vii. Types - CAST(expression AS type)
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
