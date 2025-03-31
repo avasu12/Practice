@@ -14,7 +14,13 @@ Mapping
 
 '''
 
+import sys
 
 # Boolean
 x = bool("false")
 print(x)
+y = True # Contrasted with SQL, where "T" isn't capitalized
+
+print(sys.getsizeof(x))
+print(id(x))
+print(y)
