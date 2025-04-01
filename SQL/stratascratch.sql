@@ -204,3 +204,10 @@ inner join airbnb_guests as g on h.gender = g.gender and h.nationality = g.natio
 select (count(case when address <> '' then c.id else null end)::decimal/count(c.id)::decimal)*100 as percentage
 from orders as o
 inner join customers as c on o.cust_id = c.id;
+
+
+--Medium - Meta
+select post_date, (sum(case when post_keywords = '[#spam#]' then 1 else null end)::decimal/count(*)::decimal)*100 as spam_percentage
+from facebook_posts as p
+inner join facebook_post_views as v on p.post_id = v.post_id
+group by post_date;
