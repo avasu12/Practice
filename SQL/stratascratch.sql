@@ -211,3 +211,10 @@ select post_date, (sum(case when post_keywords = '[#spam#]' then 1 else null end
 from facebook_posts as p
 inner join facebook_post_views as v on p.post_id = v.post_id
 group by post_date;
+
+--Medium - Apple/Google
+select language, count(distinct case when device in ('ipad air', 'iphone 5s', 'macbook pro') then u.user_id else null end), count(distinct u.user_id) as total_users
+from playbook_users as u
+inner join playbook_events as e on u.user_id = e.user_id
+group by language
+order by total_users desc;
