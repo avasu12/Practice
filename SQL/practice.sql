@@ -24,6 +24,8 @@ Index of concepts:
 1. Operators
     i. Pattern matching: ilike, like, ~
     ii. Types - ::
+    iii. Subquery - IN, NOT IN, ANY/SOME, ALL, EXCEPT, single-row comparison 
+    iv. Comparison - BETWEEN, NOT BETWEEN, IS NULL, IS NOT NULL
 2. Functions
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
