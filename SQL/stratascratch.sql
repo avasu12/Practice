@@ -218,3 +218,13 @@ from playbook_users as u
 inner join playbook_events as e on u.user_id = e.user_id
 group by language
 order by total_users desc;
+
+--Medium - Instacart/Amazon
+select distinct c.first_name
+from customers as c
+left join orders as o on c.id = o.cust_id
+except
+select distinct c.first_name
+from customers as c
+inner join orders as o on c.id = o.cust_id
+where o.order_date between '2019-02-01' and '2019-03-01';

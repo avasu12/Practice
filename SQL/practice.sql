@@ -9,18 +9,20 @@ GROUP BY
 HAVING
 Window Functions
 
+-- Presentation
 SELECT
 ORDER BY
 LIMIT
 OFFSET
 
+-- Combine Queries
 UNION, INTERSECT, EXCEPT
 
 */
 
 /*
 
-Index of concepts:
+Index of conepts:
 1. Operators
     i. Pattern matching: ilike, like, ~
     ii. Types - ::
