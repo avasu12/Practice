@@ -228,3 +228,30 @@ select distinct c.first_name
 from customers as c
 inner join orders as o on c.id = o.cust_id
 where o.order_date between '2019-02-01' and '2019-03-01';
+
+--Medium - Airbnb
+explain
+select h.nationality, count(distinct u.unit_id) as total_apartments
+from airbnb_hosts as h
+inner join airbnb_units as u on h.host_id = u.host_id and h.age < 30 and unit_type = 'Apartment'
+--where h.age < 30
+group by h.nationality
+order by total_apartments desc;
+
+explain
+select h.nationality, count(distinct u.unit_id) as total_apartments
+from airbnb_hosts as h
+inner join airbnb_units as u on h.host_id = u.host_id and h.age < 30 
+where h.age < 30 and unit_type = 'Apartment' 
+group by h.nationality
+order by total_apartments desc;
+
+--Medium - Airbnb
+with guest_messages as(
+    select id_guest, sum(n_messages) as total_messages
+    from airbnb_contacts
+    group by id_guest
+    order by total_messages desc
+)
+select dense_rank() over (order by total_messages desc) as guest_rank, *
+from guest_messages;

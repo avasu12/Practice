@@ -7,7 +7,7 @@ INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
 WHERE
 GROUP BY
 HAVING
-Window Functions
+Window Functions (PARTITION BY, ORDER BY - for ranks)
 
 -- Presentation
 SELECT
