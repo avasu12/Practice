@@ -32,7 +32,7 @@ Index of conepts:
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
     iii. String - lower(), string_to_array()
-    iv. Array - unnest()
+    iv. Array - unnest(), array_length(), split_part()
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
@@ -40,6 +40,7 @@ Index of conepts:
     i. ' - String literals
     ii. " - Identifiers
     iii. () - Function arguments
+    iv. [] - Array index, [:] - Array slice
 
 */
 
