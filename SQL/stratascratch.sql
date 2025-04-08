@@ -255,3 +255,11 @@ with guest_messages as(
 )
 select dense_rank() over (order by total_messages desc) as guest_rank, *
 from guest_messages;
+
+
+--Medium - City of SanFrancisco
+select business_postal_code, count(distinct case when business_address ~ '^[0-9]' then lower(split_part(business_address, ' ', 2)) else lower(split_part(business_address, ' ', 1)) end) as total_streets
+from sf_restaurant_health_violations
+where business_postal_code is not null
+group by business_postal_code
+order by total_streets desc, business_postal_code asc;

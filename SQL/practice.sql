@@ -2,6 +2,7 @@
 
 SQL Query order of execution:
 
+-- Preparation
 FROM
 INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
 WHERE
@@ -10,8 +11,8 @@ HAVING
 Window Functions (PARTITION BY, ORDER BY - for ranks)
 
 -- Presentation
-SELECT
-ORDER BY
+SELECT, DISTINCT
+ORDER BY ASC/DESC
 LIMIT
 OFFSET
 
@@ -31,8 +32,8 @@ Index of conepts:
 2. Functions
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
-    iii. String - lower(), string_to_array()
-    iv. Array - unnest(), array_length(), split_part()
+    iii. String - lower(), string_to_array(), split_part()
+    iv. Array - unnest(), array_length()
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
