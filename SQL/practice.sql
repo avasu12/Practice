@@ -218,6 +218,16 @@ from facebook_reactions as r
 left join facebook_posts as p on r.post_id = p.post_id
 where reaction = 'heart';
 
+with a as(
+select *
+from fb_friend_requests
+where action='sent'), b as(
+select *
+from fb_friend_requests
+where action = 'accepted')
+select *
+from a left join b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver;
+
 -- Join a table by itself
 select account_id, entry_date
 from premium_accounts_by_day a
