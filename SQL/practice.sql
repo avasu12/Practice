@@ -32,7 +32,7 @@ Index of conepts:
 2. Functions
     i. CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
-    iii. String - lower(), string_to_array(), split_part()
+    iii. String - concat(), lower(), string_to_array(), split_part()
     iv. Array - unnest(), array_length()
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
@@ -194,6 +194,16 @@ An important distinction:
 An inner join can cause duplicates (if there's a one-to many or many to many relationship)
 
 Ambiguity may occur (eg: in a self join): you can use "qualified names" in this case 
+
+*/
+
+/*
+
+DAX comparison:
+There's no apparent "order of execution" like in SQL?
+NATURALINNERJOIN(Table1, Table2)
+
+When a relationship is created between two tables, it behaves like a ... join?
 
 */
 
