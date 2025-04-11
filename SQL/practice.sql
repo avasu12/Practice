@@ -3,8 +3,12 @@
 SQL Query order of execution:
 
 -- Preparation
+
+-- Relationship definition
 FROM
 INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
+
+-- Set functions
 WHERE
 GROUP BY
 HAVING
@@ -243,6 +247,11 @@ select account_id, entry_date
 from premium_accounts_by_day a
 left join premium_accounts_by_day b
 where a.inal_price > 0;
+
+
+select *
+from fb_friend_requests as a
+left join fb_friend_requests as b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver and a.action = 'sent'
 
 /* 
 
