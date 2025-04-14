@@ -263,3 +263,10 @@ from sf_restaurant_health_violations
 where business_postal_code is not null
 group by business_postal_code
 order by total_streets desc, business_postal_code asc;
+
+--Medium - Meta
+select a.date, count(b.user_id_sender)::numeric/count(a.user_id_sender)::numeric as acceptance_rate
+from fb_friend_requests as a
+left join fb_friend_requests as b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver and a.action ='sent' and b.action = 'accepted'
+where a.action = 'sent'
+group by a.date;
