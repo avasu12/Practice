@@ -3,7 +3,6 @@
 SQL Query order of execution:
 
 -- Preparation
-
 -- Relationship definition
 FROM
 INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
@@ -14,7 +13,7 @@ GROUP BY
 HAVING
 Window Functions (PARTITION BY, ORDER BY - for ranks)
 
--- Presentation
+-- Presentation & computations
 SELECT, DISTINCT
 ORDER BY ASC/DESC
 LIMIT
@@ -34,7 +33,7 @@ Index of conepts:
     iii. Subquery - IN, NOT IN, ANY/SOME, ALL, EXCEPT, single-row comparison 
     iv. Comparison - BETWEEN, NOT BETWEEN, IS NULL, IS NOT NULL
 2. Functions
-    i. CASE WHEN ... THEN ... ELSE ... END
+    i. Conditions - CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
     iii. String - concat(), lower(), string_to_array(), split_part()
     iv. Array - unnest(), array_length()

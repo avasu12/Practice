@@ -270,3 +270,7 @@ from fb_friend_requests as a
 left join fb_friend_requests as b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver and a.action ='sent' and b.action = 'accepted'
 where a.action = 'sent'
 group by a.date;
+
+--Medium - Meta
+select count(case when clicked = 1 and search_results_position between 1 and 3 then 1 else null end)*100::numeric/count(*)::numeric as percent_clicked, count(case when clicked = 0 and search_results_position between 1 and 3 then 1 else null end)*100::numeric/count(*)::numeric as percent_not_clicked
+from fb_search_events;
