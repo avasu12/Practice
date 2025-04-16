@@ -274,3 +274,8 @@ group by a.date;
 --Medium - Meta
 select count(case when clicked = 1 and search_results_position between 1 and 3 then 1 else null end)*100::numeric/count(*)::numeric as percent_clicked, count(case when clicked = 0 and search_results_position between 1 and 3 then 1 else null end)*100::numeric/count(*)::numeric as percent_not_clicked
 from fb_search_events;
+
+--Medium - Meta
+select count(case when status = 'closed' then 1 else null end)::numeric/count(*)::numeric as closed_ratio
+from fb_account_status
+where date = '2020-01-10';
