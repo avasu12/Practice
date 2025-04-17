@@ -187,6 +187,14 @@ from worker
 where extract(month from joining_date) between 4 and 12
 group by department;
 
+-- What happens when you mix aggreagate and non-aggreagate functions?
+select a.title, a.budget, (sum(c.salary)/365)*(a.end_date-a.start_date)::numeric as prorated
+from linkedin_projects as a
+inner join linkedin_emp_projects as b on a.id = b.project_id
+inner join linkedin_employees as c on b.emp_id = c.id
+group by a.title, a.budget, a.end_date, a.start_date
+having a.budget < (sum(c.salary)/365)*(a.end_date-a.start_date)::numeric;
+
 
 /* 
 
