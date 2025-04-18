@@ -40,6 +40,7 @@ Index of conepts:
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
+    viii. Math - ceiling()
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
@@ -194,6 +195,14 @@ inner join linkedin_emp_projects as b on a.id = b.project_id
 inner join linkedin_employees as c on b.emp_id = c.id
 group by a.title, a.budget, a.end_date, a.start_date
 having a.budget < (sum(c.salary)/365)*(a.end_date-a.start_date)::numeric;
+
+-- Different behavior than the previous query
+select a.title, a.budget, sum((c.salary/365)*(a.end_date-a.start_date))::numeric as prorated
+from linkedin_projects as a
+inner join linkedin_emp_projects as b on a.id = b.project_id
+inner join linkedin_employees as c on b.emp_id = c.id
+group by a.title, a.budget
+having a.budget < sum((c.salary/365)*(a.end_date-a.start_date));
 
 
 /* 
