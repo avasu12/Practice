@@ -279,3 +279,11 @@ from fb_search_events;
 select count(case when status = 'closed' then 1 else null end)::numeric/count(*)::numeric as closed_ratio
 from fb_account_status
 where date = '2020-01-10';
+
+--Medium - Linkedin
+select a.title, a.budget, ceiling(sum((c.salary::numeric/365)*(a.end_date-a.start_date))) as prorated
+from linkedin_projects as a
+inner join linkedin_emp_projects as b on a.id = b.project_id
+inner join linkedin_employees as c on b.emp_id = c.id
+group by a.title, a.budget
+having a.budget < ceiling(sum((c.salary::numeric/365)*(a.end_date-a.start_date)));
