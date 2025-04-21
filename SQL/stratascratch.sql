@@ -287,3 +287,13 @@ inner join linkedin_emp_projects as b on a.id = b.project_id
 inner join linkedin_employees as c on b.emp_id = c.id
 group by a.title, a.budget
 having a.budget < ceiling(sum((c.salary::numeric/365)*(a.end_date-a.start_date)));
+
+--Medium - Tesla
+select company_name, count(case when year = 2020 then 1 else null end)- count(case when year = 2019 then 1 else null end) as net_difference
+from car_launches
+group by company_name;
+
+--Medium - Amazon
+select distinct a.user_id
+from amazon_transactions as a
+inner join amazon_transactions as b on a.user_id = b.user_id and (a.created_at between b.created_at and b.created_at+7) and a.id <> b.id;
