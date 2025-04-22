@@ -11,7 +11,7 @@ INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
 WHERE
 GROUP BY
 HAVING
-Window Functions (PARTITION BY, ORDER BY - for ranks)
+Window Functions (PARTITION BY XYZ, ABC ORDER BY PQR, LMN, DEF- for ranks)
 
 -- Presentation & computations
 SELECT, DISTINCT
@@ -26,7 +26,7 @@ UNION, INTERSECT, EXCEPT
 
 /*
 
-Index of conepts:
+Index of concepts:
 1. Operators
     i. Pattern matching: ilike, like, ~
     ii. Types - ::

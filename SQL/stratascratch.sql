@@ -297,3 +297,16 @@ group by company_name;
 select distinct a.user_id
 from amazon_transactions as a
 inner join amazon_transactions as b on a.user_id = b.user_id and (a.created_at between b.created_at and b.created_at+7) and a.id <> b.id;
+
+--Medium - Google
+with sub_table as(
+select from_user, count(to_user) as total_emails
+from google_gmail_emails
+group by from_user
+)
+select from_user, total_emails, row_number() over (order by total_emails desc, from_user asc) as activity_rank
+from sub_table;
+
+select from_user, count(to_user) as total_emails, row_number() over (order by count(to_user) desc, from_user asc)
+from google_gmail_emails
+group by from_user;
