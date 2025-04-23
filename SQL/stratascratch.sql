@@ -310,3 +310,22 @@ from sub_table;
 select from_user, count(to_user) as total_emails, row_number() over (order by count(to_user) desc, from_user asc)
 from google_gmail_emails
 group by from_user;
+
+--Medium - Meta
+
+with page_loads as(
+select user_id, extract(day from timestamp) as day, max(timestamp) as latest_timestamp
+from facebook_web_log
+where action = 'page_load'
+group by user_id, day
+),
+page_exits as(
+select user_id , extract(day from timestamp) as day, min(timestamp) as earliest_timestamp
+from facebook_web_log
+where action = 'page_exit'
+group by user_id, day
+)
+select a.user_id, avg(b.earliest_timestamp - a.latest_timestamp) as average_session_time
+from page_loads as a
+inner join page_exits as b on a.day = b.day and a.user_id = b.user_id
+group by a.user_id;
