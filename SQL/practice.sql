@@ -177,6 +177,13 @@ from sf_restaurant_health_violations
 where business_name = 'Roxanne Cafe'
 group by year;
 
+select user_id, action, (case when action = 'page_load' then max(timestamp) when action = 'page_exit' then min(timestamp) end)
+from facebook_web_log
+where action = 'page_load' or action = 'page_exit'
+group by user_id, action
+order by user_id asc;
+
+
 -- Employees that joined after April (any year)
 
 select count(worker_id)
