@@ -1,3 +1,9 @@
+--Easy - Amazon
+select worker_title
+from worker
+inner join title on worker_id = worker_ref_id
+where salary = (select max(salary) from worker);
+
 /* 
 Medium - Google
 */
@@ -329,3 +335,4 @@ select a.user_id, avg(b.earliest_timestamp - a.latest_timestamp) as average_sess
 from page_loads as a
 inner join page_exits as b on a.day = b.day and a.user_id = b.user_id
 group by a.user_id;
+
