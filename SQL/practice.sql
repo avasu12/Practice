@@ -283,6 +283,10 @@ select *
 from fb_friend_requests as a
 left join fb_friend_requests as b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver and a.action = 'sent'
 
+select * --count(distinct b.user_id) as additional_purchases
+from marketing_campaign as a
+inner join marketing_campaign as b on b.created_at > a.created_at and a.user_id = b.user_id;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
