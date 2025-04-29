@@ -529,3 +529,19 @@ group by entry_date;
 
 
 
+/*
+
+Intricate Query
+
+*/
+with temp_table as(
+    select user_id, created_at, product_id, min(created_at) over (partition by user_id) as min_date
+    from marketing_campaign
+), bad_products as(
+    select product_id
+    from temp_table
+    where created_at = min_date
+)
+select *
+from temp_table as a
+where created_at <> min_date and product_id not in (select product_id from bad_products where product_id <> a.product_id);
