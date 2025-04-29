@@ -527,12 +527,8 @@ from premium_accounts_by_day
 group by entry_date;
 
 
-
-
 /*
-
 Intricate Query
-
 */
 with temp_table as(
     select user_id, created_at, product_id, min(created_at) over (partition by user_id) as min_date
