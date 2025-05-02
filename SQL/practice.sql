@@ -35,12 +35,12 @@ Index of concepts:
 2. Functions
     i. Conditions - CASE WHEN ... THEN ... ELSE ... END
     ii. NULLIF
-    iii. String - concat(), lower(), string_to_array(), split_part()
+    iii. String - concat(), lower(), string_to_array(), split_part(), replace()
     iv. Array - unnest(), array_length()
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
-    viii. Math - ceiling()
+    viii. Math - ceiling(), floor()
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
