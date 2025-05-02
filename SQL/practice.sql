@@ -541,3 +541,16 @@ with temp_table as(
 select *
 from temp_table as a
 where created_at <> min_date and product_id not in (select product_id from bad_products where product_id <> a.product_id);
+
+with partitioned_table as (
+    select user_id, created_at, product_id, min(created_at) over (partition by user_id) as first_day
+    from marketing_campaign
+),
+day1products as (
+    select user_id, product_id
+    from partitioned_table
+    where created_at = first_day
+)
+select count(distinct user_id)
+from partitioned_table
+where created_at <> first_day and product_id not in (select product_id from day1products);
