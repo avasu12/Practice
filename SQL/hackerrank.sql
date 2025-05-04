@@ -27,3 +27,15 @@ from city;
 
 select ceiling(avg(Salary) - avg(replace(Salary, 0, ''))) as error
 from employees;
+
+-- Easy - calculated columns
+select salary*months as maximum_total_earnings, count(*) as total_max_staff
+from Employee
+where salary*months = (select max(salary*months) from Employee)
+group by maximum_total_earnings;
+
+-- Easy - expressions in group by & where
+select salary*months as total_earnings, count(*) as total_number
+from Employee
+where (salary*months) = (select max(salary*months) from Employee)
+group by salary*months;

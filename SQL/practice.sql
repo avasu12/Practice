@@ -7,10 +7,13 @@ SQL Query order of execution:
 FROM
 INNER/LEFT/RIGHT/FULL OUTER/CROSS JOIN ON
 
--- Set functions
+-- Set functions 
+-- Filter using expressions - no aggregations
 WHERE
+-- Filter using aggregate expressions
 GROUP BY
 HAVING
+-- Can't filter window functions?
 Window Functions (PARTITION BY XYZ, ABC ORDER BY PQR, LMN, DEF- for ranks)
 
 -- Presentation & computations
@@ -554,3 +557,13 @@ day1products as (
 select count(distinct user_id)
 from partitioned_table
 where created_at <> first_day and product_id not in (select product_id from day1products);
+
+
+-- Group by without aggregate functions
+with count_users as (
+    select user_id
+    from marketing_campaign
+    group by user_id
+    having count(*) > 1
+)
+select * from count_users;
