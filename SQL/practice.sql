@@ -43,7 +43,7 @@ Index of concepts:
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
-    viii. Math - ceiling(), floor()
+    viii. Math - ceiling(), floor(), round(number, places)
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
@@ -567,3 +567,18 @@ with count_users as (
     having count(*) > 1
 )
 select * from count_users;
+
+/*
+
+Query execution plan: 
+1. Sequential scan to filter
+2. Sort column
+3. Group aggregate
+
+*/
+
+explain
+select quantity, max(price) from marketing_campaign
+where price = 55
+group by quantity
+;

@@ -39,3 +39,7 @@ select salary*months as total_earnings, count(*) as total_number
 from Employee
 where (salary*months) = (select max(salary*months) from Employee)
 group by salary*months;
+
+-- Easy - Hash/sort with math function
+select round(sum(lat_n), 2), round(sum(long_w), 2)
+from station;
