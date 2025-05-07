@@ -582,3 +582,7 @@ select quantity, max(price) from marketing_campaign
 where price = 55
 group by quantity
 ;
+
+explain
+select *, sum(price) over (order by user_id) as cumulative
+from marketing_campaign;
