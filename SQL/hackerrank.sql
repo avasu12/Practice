@@ -43,3 +43,24 @@ group by salary*months;
 -- Easy - Hash/sort with math function
 select round(sum(lat_n), 2), round(sum(long_w), 2)
 from station;
+
+select round(sum(lat_n), 4)
+from station
+where lat_n between 38.7880 and 137.2345;
+
+select round(max(lat_n), 4)
+from station
+where lat_n < 137.2345;
+
+select round(long_w, 4)
+from station
+where lat_n = (
+    select max(lat_n)
+    from Station
+    where lat_n < 137.2345
+)
+    
+
+select round(min(lat_n), 4)
+from Station
+where lat_n > 38.7780;
