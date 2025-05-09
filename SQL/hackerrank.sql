@@ -64,3 +64,13 @@ where lat_n = (
 select round(min(lat_n), 4)
 from Station
 where lat_n > 38.7780;
+
+select round(long_w, 4)
+from station
+where lat_n = (select min(lat_n) from station where lat_n > 38.7780)
+
+select round(abs(max(lat_n) - min(lat_n)) + abs(max(long_w) - min(long_w)), 4)
+from station;
+
+select round(sqrt(power(min(lat_n) - max(lat_n), 2) + power(min(long_w) - max(long_w), 2)), 4)
+from station;

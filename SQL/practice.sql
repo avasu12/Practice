@@ -43,7 +43,7 @@ Index of concepts:
     v. Window - rank(), dense_rank()
     vi. Date - EXTRACT(part FROM attribute)
     vii. Types - CAST(expression AS type)
-    viii. Math - ceiling(), floor(), round(number, places)
+    viii. Math - ceiling(), floor(), round(number, places), abs(), sqrt(), power()
 3. Delimiters:
     i. ' - String literals
     ii. " - Identifiers
