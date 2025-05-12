@@ -74,3 +74,18 @@ from station;
 
 select round(sqrt(power(min(lat_n) - max(lat_n), 2) + power(min(long_w) - max(long_w), 2)), 4)
 from station;
+
+select sum(city.population)
+from country
+inner join city on countrycode = code
+where continent = 'Asia';
+
+select city.name
+from country
+inner join city on countrycode = code
+where continent = 'Africa';
+
+select country.continent, floor(avg(city.population)) as average_population
+from country
+inner join city on code = countrycode
+group by country.continent;
