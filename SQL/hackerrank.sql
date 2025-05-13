@@ -89,3 +89,15 @@ select country.continent, floor(avg(city.population)) as average_population
 from country
 inner join city on code = countrycode
 group by country.continent;
+
+-- Easy - Recursive CTEs
+
+with recursive cte as(
+    select 1 as parameter
+    union all
+    select parameter + 1
+    from cte
+    where parameter < 20
+)
+select *
+from cte;
