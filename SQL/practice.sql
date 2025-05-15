@@ -586,3 +586,18 @@ group by quantity
 explain
 select *, sum(price) over (order by user_id) as cumulative
 from marketing_campaign;
+
+-- Median calculation attempt
+with indexed_table as(
+    select lat_n, rank() over (order by lat_n asc) as row_id
+    from station
+), max_index as(
+    select max(row_id) as last_index
+    from indexed_table
+), mid_indexes as(
+    select case when last_index%2=0 then (last_index/2) else floor(last_index/2)+1 end
+    from max_index
+)
+select round(avg(lat_n), 4) as median
+from indexed_table
+where row_id in (select * from mid_indexes);
