@@ -601,3 +601,10 @@ with indexed_table as(
 select round(avg(lat_n), 4) as median
 from indexed_table
 where row_id in (select * from mid_indexes);
+
+-- Cross join
+select f1.x, f1.y
+from Functions f1
+cross join Functions f2
+where f1.x = f2.y and f1.y = f2.x
+order by f1.x;

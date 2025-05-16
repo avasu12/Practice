@@ -101,3 +101,12 @@ with recursive cte as(
 )
 select *
 from cte;
+
+-- Medium - multiple joins
+select s.Name
+from Students as s
+inner join Friends as f on s.ID = f.ID
+inner join Packages as p1 on s.ID = p1.ID
+inner join Packages as p2 on f.Friend_ID = p2.ID
+where p2.Salary > p1.Salary
+order by p2.Salary asc;
