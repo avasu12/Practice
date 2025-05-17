@@ -614,3 +614,7 @@ from Functions as f1
 cross join Functions as f2
 where f1.x = f2.y and f2.x = f1.y and f1.x <= f1.y
 order by f1.x;
+
+select e.name as Employee
+from Employee as e
+inner join Employee as m on e.managerId = m.id and e.salary > m.salary;
