@@ -608,3 +608,9 @@ from Functions f1
 cross join Functions f2
 where f1.x = f2.y and f1.y = f2.x
 order by f1.x;
+
+select distinct f1.x, f2.y
+from Functions as f1
+cross join Functions as f2
+where f1.x = f2.y and f2.x = f1.y and f1.x <= f1.y
+order by f1.x;
