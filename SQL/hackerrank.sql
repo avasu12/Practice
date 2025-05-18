@@ -110,3 +110,14 @@ inner join Packages as p1 on s.ID = p1.ID
 inner join Packages as p2 on f.Friend_ID = p2.ID
 where p2.Salary > p1.Salary
 order by p2.Salary asc;
+
+-- Medium - Cross join
+with indexed_Functions as(
+    select *, row_number() over () as index_col
+    from Functions
+)
+select distinct f1.x, f1.y
+from indexed_Functions as f1
+cross join indexed_Functions as f2
+where f1.index_col <> f2.index_col and f1.x <= f1.y and f1.x = f2.y and f1.y = f2.x
+order by f1.x;
