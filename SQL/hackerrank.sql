@@ -121,3 +121,9 @@ from indexed_Functions as f1
 cross join indexed_Functions as f2
 where f1.index_col <> f2.index_col and f1.x <= f1.y and f1.x = f2.y and f1.y = f2.x
 order by f1.x;
+
+-- Medium - inner join using between
+select case when Grade < 8 then null else Name end, Grade, Marks
+from Students
+inner join Grades on Marks between Min_Mark and Max_Mark
+order by Grade desc, Name asc, Marks asc;
