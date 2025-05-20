@@ -618,3 +618,25 @@ order by f1.x;
 select e.name as Employee
 from Employee as e
 inner join Employee as m on e.managerId = m.id and e.salary > m.salary;
+
+-- Pivoting
+with Doctors as (
+    select Name, row_number() over () as row_num
+    from Occupations
+    where Occupation = 'Doctor'
+), Professors as (
+    select Name, row_number() over () as row_num
+    from Occupations
+    where Occupation = 'Professor'
+), Singers as (
+    select Name, row_number() over () as row_num
+    from Occupations
+    where Occupation = 'Singer'
+), Actors as (
+    select Name, row_number() over () as row_num
+    from Occupations
+    where Occupation = 'Actor'
+)
+select *
+from Doctors 
+natural join Professors;
