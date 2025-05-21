@@ -127,3 +127,13 @@ select case when Grade < 8 then null else Name end, Grade, Marks
 from Students
 inner join Grades on Marks between Min_Mark and Max_Mark
 order by Grade desc, Name asc, Marks asc;
+
+-- Medium - Pivot columns
+
+with rowed_table as(
+    select *, row_number() over (partition by Occupation order by Name) as row_id
+    from Occupations
+)
+select min(case when Occupation = 'Doctor' then Name end) as Doctor, min(case when Occupation = 'Professor' then Name end) as Professor, min(case when Occupation = 'Singer' then Name end) as Singer, min(case when Occupation = 'Actor' then Name end) as Actor
+from rowed_table
+group by row_id;
