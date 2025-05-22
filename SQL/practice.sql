@@ -619,7 +619,14 @@ select e.name as Employee
 from Employee as e
 inner join Employee as m on e.managerId = m.id and e.salary > m.salary;
 
--- Pivoting
+/*
+
+ Pivoting
+
+ It's about making relationships more broad or specific. 
+ A specific relationship in a relation can be more compact (data size) than a broad relationship
+
+ */
 with Doctors as (
     select Name, row_number() over () as row_num
     from Occupations
@@ -640,3 +647,8 @@ with Doctors as (
 select *
 from Doctors 
 natural join Professors;
+
+-- Pivoting a sales table with 3 columns: product, Month, and sales
+select product, SUM(case when Month = 'Jan' then sales end) as Jan, SUM(case when Month = 'Feb' then sales end) as Feb
+from Sales
+group by product;
