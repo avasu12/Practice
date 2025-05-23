@@ -137,3 +137,8 @@ with rowed_table as(
 select min(case when Occupation = 'Doctor' then Name end) as Doctor, min(case when Occupation = 'Professor' then Name end) as Professor, min(case when Occupation = 'Singer' then Name end) as Singer, min(case when Occupation = 'Actor' then Name end) as Actor
 from rowed_table
 group by row_id;
+
+-- Medium - conditional select
+select N, (case when P is NULL then 'Root' when N not in (select P from BST where P is not null) then 'Leaf' else 'Inner' end) as NodeType
+from BST
+order by N asc;
