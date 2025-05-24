@@ -290,6 +290,16 @@ select * --count(distinct b.user_id) as additional_purchases
 from marketing_campaign as a
 inner join marketing_campaign as b on b.created_at > a.created_at and a.user_id = b.user_id;
 
+-- Multiple joins
+select c.company_code, count(l.lead_manager_code) as lead_managers, count(s.senior_manager_code) as senior_managers, count(m.manager_code) as managers, count(e.employee_code) as employees 
+from Company as c
+left join Lead_Manager as l on c.company_code = l.company_code
+left join Senior_Manager as s on l.company_code = s.company_code and l.lead_manager_code = s.lead_manager_code
+left join Manager as m on s.company_code = m.company_code and s.lead_manager_code = m.lead_manager_code and s.senior_manager_code = m.senior_manager_code
+left join employee as e on m.company_code = e.company_code and m.lead_manager_code = e.lead_manager_code and m.senior_manager_code = e.senior_manager_code and m.manager_code = e.manager_code
+group by c.company_code
+order by c.company_code asc;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
