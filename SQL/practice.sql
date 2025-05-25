@@ -275,6 +275,15 @@ where action = 'accepted')
 select *
 from a left join b on a.user_id_sender = b.user_id_sender and a.user_id_receiver = b.user_id_receiver;
 
+with projects_table as(
+    select p1.Start_Date, p1.End_Date
+    from projects as p1
+    inner join projects as p2 on p1.End_Date = p2.Start_Date
+)
+select *
+from projects_table
+order by End_Date asc, Start_Date asc;
+
 -- Join a table by itself
 select account_id, entry_date
 from premium_accounts_by_day a
@@ -662,3 +671,4 @@ natural join Professors;
 select product, SUM(case when Month = 'Jan' then sales end) as Jan, SUM(case when Month = 'Feb' then sales end) as Feb
 from Sales
 group by product;
+
