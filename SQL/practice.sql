@@ -472,6 +472,10 @@ order by account_id;
 select student_id, row_number() over ()
 from sat_scores;
 
+select *, Start_Date - lag(Start_Date) over () as diff
+from Projects
+order by Start_Date asc;
+
 
 /*
 
