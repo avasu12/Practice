@@ -591,6 +591,19 @@ with count_users as (
 )
 select * from count_users;
 
+-- Calculate median
+with sorted_table as(
+    select lat_n, row_number() over (order by lat_n) as row_num
+    from station
+), table_information as(
+    select max(row_num) as total_rows
+    from sorted_table
+)
+select *
+from sorted_table
+where row_num = (select floor(total_rows/2)+1 from table_information);
+
+
 /*
 
 Query execution plan: 
