@@ -142,3 +142,19 @@ group by row_id;
 select N, (case when P is NULL then 'Root' when N not in (select P from BST where P is not null) then 'Leaf' else 'Inner' end) as NodeType
 from BST
 order by N asc;
+
+-- Medium - Median
+with ordered_table as(
+    select lat_n, row_number() over (order by lat_n asc) as row_num
+    from station
+), mid_indices as(
+    select floor(max(row_num)/2) as a, floor(max(row_num)/2)+1 as b, max(row_num) as last
+    from ordered_table
+)
+select round(avg(lat_n), 4) as median
+from ordered_table
+where row_num in (
+    select b from mid_indices
+    union
+    select case when last%2 = 0 then a else null end from mid_indices
+);

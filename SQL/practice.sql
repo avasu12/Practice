@@ -603,20 +603,6 @@ select *
 from sorted_table
 where row_num = (select floor(total_rows/2)+1 from table_information);
 
-with ordered_table as(
-    select lat_n, row_number() over (order by lat_n asc) as row_num
-    from station
-), mid_indices as(
-    select floor(max(lat_n)/2) as a, floor(max(lat_n)/2)+1 as b, max(lat_n) as last
-    from ordered_table
-)
-select round(avg(lat_n), 4) as median
-from ordered_table
-where row_num in (
-    select b from mid_indices
-    union
-    select case when last%2 = 0 then a else null end from mid_indices
-);
 
 
 /*
