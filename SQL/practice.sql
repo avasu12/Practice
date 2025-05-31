@@ -309,6 +309,16 @@ left join employee as e on m.company_code = e.company_code and m.lead_manager_co
 group by c.company_code
 order by c.company_code asc;
 
+
+select h.hacker_id, h.name, count(s.hacker_id) as fullscores
+from Submissions as s
+inner join Challenges as c on c.challenge_id = s.challenge_id
+inner join Difficulty as d on s.score = d.score and c.difficulty_level = d.difficulty_level
+inner join Hackers as h on h.hacker_id = s.hacker_id
+group by h.hacker_id, h.name
+having count(s.hacker_id) > 1
+order by fullscores desc, h.hacker_id asc;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
