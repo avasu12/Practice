@@ -700,3 +700,12 @@ select product, SUM(case when Month = 'Jan' then sales end) as Jan, SUM(case whe
 from Sales
 group by product;
 
+-- ChatGPT puzzle
+select name
+from Employees
+group by salary
+having count(id) = 1
+order by salary asc
+limit 1
+offset 2;
+
