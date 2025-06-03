@@ -158,3 +158,13 @@ where row_num in (
     union
     select case when last%2 = 0 then a else null end from mid_indices
 );
+
+-- Medium - Multiple joins
+select h.hacker_id, min(h.name)
+from Hackers as h
+inner join Submissions as s on h.hacker_id = s.hacker_id
+inner join Challenges as c on c.challenge_id = s.challenge_id
+inner join Difficulty as d on d.difficulty_level = c.difficulty_level and s.score = d.score
+group by hacker_id
+having count(c.challenge_id) > 1
+order by count(c.challenge_id) desc, hacker_id asc;
