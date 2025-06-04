@@ -486,6 +486,14 @@ select *, Start_Date - lag(Start_Date) over () as diff
 from Projects
 order by Start_Date asc;
 
+with grouped_projects as(
+    select *, case when lead(p1.Start_Date) over (order by p1.Start_Date) - p1.Start_Date  > 1 then 'boundary' else null end as diff
+    from Projects as p1
+)
+select End_Date
+from grouped_projects
+where diff = 'boundary';
+
 
 /*
 
