@@ -319,6 +319,13 @@ group by h.hacker_id, h.name
 having count(s.hacker_id) > 1
 order by fullscores desc, h.hacker_id asc;
 
+select date, case when a.paying_customer = 'no' then sum(downloads) end as non_paying_downloads, case when a.paying_customer = 'yes' then sum(downloads) end as paying_downloads
+from ms_download_facts as d
+right join ms_user_dimension as u on d.user_id = u.user_id
+left join ms_acc_dimension as a on a.acc_id = u.acc_id
+group by d.date, a.paying_customer
+order by d.date asc;
+
 /* 
 
 Views help you look at a table in a different way (focused, or simplified)
