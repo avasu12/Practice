@@ -724,3 +724,8 @@ order by salary asc
 limit 1
 offset 2;
 
+select d.department_name, e.name, max(e.salary)
+FROM employees as e
+INNER JOIN departments as d on e.department_id = d.department_id
+GROUP BY d.department_name, e.name;
+
