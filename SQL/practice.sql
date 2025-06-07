@@ -729,3 +729,11 @@ FROM employees as e
 INNER JOIN departments as d on e.department_id = d.department_id
 GROUP BY d.department_name, e.name;
 
+select distinct ep1.employee_id, ep2.employee_id, count(project_id)
+from employees e
+inner join employee_projects as ep1 on e.employee_id = ep1.employee_id
+inner join employee_projects as ep2 on ep1.project_id = ep2.project_id
+inner join projects as p on ep2.project_id = p.project_id
+where ep1.employee_id <> ep2.employee_id and ep1.employee_id < ep2.employee_id
+group by ep1.employee_id, ep2.employee_id;
+
