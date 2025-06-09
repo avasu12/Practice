@@ -501,6 +501,10 @@ select End_Date
 from grouped_projects
 where diff = 'boundary';
 
+ select h.hacker_id, h.name, max(s.score) over (partition by challenge_id) as max_score
+    from Hackers as h
+    inner join Submissions as s on h.hacker_id = s.hacker_id;
+
 
 /*
 
