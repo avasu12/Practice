@@ -741,3 +741,11 @@ inner join projects as p on ep2.project_id = p.project_id
 where ep1.employee_id <> ep2.employee_id and ep1.employee_id < ep2.employee_id
 group by ep1.employee_id, ep2.employee_id;
 
+select max(m.genre) as genre, round(avg(r.rating), 4) as rating
+from Movies as m
+inner join Reviews as r on r.movie_id = m.movie_id
+where r.release_year > 2000
+group by m.movie_id
+having count(r.review_id) >= 5
+order by rating desc
+limit 3;
