@@ -749,3 +749,9 @@ group by m.movie_id
 having count(r.review_id) >= 5
 order by rating desc
 limit 3;
+
+select customer_id, sum(total_amount) as total
+from orders
+group by customer_id
+order by total desc
+limit 2;
