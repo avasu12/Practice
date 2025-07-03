@@ -17,3 +17,8 @@ model.fit(X, y)
 
 print("Slope: ", model.coef_[0])
 print("Intercept: ", model.intercept_)
+
+new_adspend = [[250]]
+prediction = model.predict(new_adspend)
+
+print("Predicted Sales for new adspend ", prediction[0])
