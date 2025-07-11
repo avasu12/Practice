@@ -1,22 +1,18 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 
-# Figure
-# Axes
+rev_df = pd.read_csv("filepath")
+print(rev_df)
 
-'''
-figure, axes = plt.subplots()
-axes.plot([1,2,3,4,5], [5,7,8,9,1])
-plt.show()
-'''
+print(rev_df.dtypes)
 
-x = [1,2,3,4,5]
-y = [5,7,8,9,1]
-# scatterplot = plt.scatter(x, y)
-# bargraph = plt.bar(x, y)
-# stemgraph = plt.stem(x, y)
-# stackgraph = plt.stackplot(x, y)
+rev_df['Date'] = pd.to_datetime(rev_df['Date'])
 
-piegraph = plt.pie(y)
+print(rev_df.dtypes)
+
+plt.plot(rev_df['Date'], rev_df['Revenue'])
+plt.title = "Revenue trend"
+plt.xlabel = "Date"
+plt.ylabel = "Revenue"
+plt.grid(True)
 plt.show()
